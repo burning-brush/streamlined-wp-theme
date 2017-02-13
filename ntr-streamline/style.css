@@ -1,0 +1,27 @@
+/*
+Theme Name: Streamline
+Theme URI: #
+Author: Nicholas Roberts
+Author URI: #
+Description: A streamlined theme built around the beaver page builder. Styles should only affect general content formating and containers, Plus a header that can easily be overwritten. Hooks are used before and after the main content to separate the opening and closing content container from the main header, footer and page files
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentyseventeen
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+ */
+
+/*
+    Normalize
+ */
+
+/*
+    Content styling
+
+        Typograghy
+        Images in the post
+
+
+ */
