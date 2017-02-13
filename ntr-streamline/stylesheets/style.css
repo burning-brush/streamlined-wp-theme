@@ -1,0 +1,1821 @@
+@charset "UTF-8";
+/*
+Theme Name: Streamline
+Theme URI: #
+Author: Nicholas Roberts
+Author URI: #
+Description: A streamlined theme built around the beaver page builder. Styles should only affect general content formating and containers, Plus a header that can easily be overwritten. Hooks are used before and after the main content to separate the opening and closing content container from the main header, footer and page files
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentyseventeen
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+ */
+/*--------------------------------------------------------------
+1.0 Normalize
+Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
+--------------------------------------------------------------*/
+/* line 6, ../sass/base/_normalize.scss */
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 13, ../sass/base/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 17, ../sass/base/_normalize.scss */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/* line 26, ../sass/base/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 31, ../sass/base/_normalize.scss */
+figcaption,
+figure,
+main {
+  display: block;
+}
+
+/* line 37, ../sass/base/_normalize.scss */
+figure {
+  margin: 1em 0;
+}
+
+/* line 41, ../sass/base/_normalize.scss */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+/* line 49, ../sass/base/_normalize.scss */
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* line 54, ../sass/base/_normalize.scss */
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+/* line 59, ../sass/base/_normalize.scss */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* line 64, ../sass/base/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px #767676 dotted;
+  text-decoration: none;
+}
+
+/* line 69, ../sass/base/_normalize.scss */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/* line 74, ../sass/base/_normalize.scss */
+b,
+strong {
+  font-weight: 700;
+}
+
+/* line 79, ../sass/base/_normalize.scss */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* line 86, ../sass/base/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 90, ../sass/base/_normalize.scss */
+mark {
+  background-color: #eee;
+  color: #222;
+}
+
+/* line 95, ../sass/base/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 99, ../sass/base/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 107, ../sass/base/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 111, ../sass/base/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 115, ../sass/base/_normalize.scss */
+audio,
+video {
+  display: inline-block;
+}
+
+/* line 120, ../sass/base/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 125, ../sass/base/_normalize.scss */
+img {
+  border-style: none;
+}
+
+/* line 129, ../sass/base/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 133, ../sass/base/_normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* line 144, ../sass/base/_normalize.scss */
+button,
+input {
+  overflow: visible;
+}
+
+/* line 149, ../sass/base/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/* line 154, ../sass/base/_normalize.scss */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/* line 161, ../sass/base/_normalize.scss */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* line 169, ../sass/base/_normalize.scss */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* line 176, ../sass/base/_normalize.scss */
+fieldset {
+  border: 1px solid #bbb;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/* line 182, ../sass/base/_normalize.scss */
+legend {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+/* line 193, ../sass/base/_normalize.scss */
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* line 198, ../sass/base/_normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 202, ../sass/base/_normalize.scss */
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 210, ../sass/base/_normalize.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* line 215, ../sass/base/_normalize.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+/* line 220, ../sass/base/_normalize.scss */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 225, ../sass/base/_normalize.scss */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* line 230, ../sass/base/_normalize.scss */
+details,
+menu {
+  display: block;
+}
+
+/* line 235, ../sass/base/_normalize.scss */
+summary {
+  display: list-item;
+}
+
+/* line 239, ../sass/base/_normalize.scss */
+canvas {
+  display: inline-block;
+}
+
+/* line 243, ../sass/base/_normalize.scss */
+template {
+  display: none;
+}
+
+/* line 247, ../sass/base/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+2.0 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+/* line 7, ../sass/base/_accessibility.scss */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+/* line 16, ../sass/base/_accessibility.scss */
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-alignments.scss */
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+/* line 11, ../sass/base/wp-styles/_wp-alignments.scss */
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+/* line 17, ../sass/base/wp-styles/_wp-alignments.scss */
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+5.0 Typography
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-typography.scss */
+body,
+button,
+input,
+select,
+textarea {
+  color: #333;
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.66;
+}
+
+/* line 18, ../sass/base/wp-styles/_wp-typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  line-height: 1.4;
+  margin: 0 0 0.75em;
+  padding: 1.5em 0 0;
+}
+
+/* line 30, ../sass/base/wp-styles/_wp-typography.scss */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  padding-top: 0;
+}
+
+/* line 39, ../sass/base/wp-styles/_wp-typography.scss */
+h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* line 45, ../sass/base/wp-styles/_wp-typography.scss */
+h2 {
+  color: #666;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* line 52, ../sass/base/wp-styles/_wp-typography.scss */
+h3 {
+  color: #333;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+/* line 59, ../sass/base/wp-styles/_wp-typography.scss */
+h4 {
+  color: #333;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* line 66, ../sass/base/wp-styles/_wp-typography.scss */
+h5 {
+  color: #767676;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* line 75, ../sass/base/wp-styles/_wp-typography.scss */
+h6 {
+  color: #333;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+
+/* line 82, ../sass/base/wp-styles/_wp-typography.scss */
+p {
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+/* line 87, ../sass/base/wp-styles/_wp-typography.scss */
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+/* line 94, ../sass/base/wp-styles/_wp-typography.scss */
+blockquote {
+  color: #666;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* line 105, ../sass/base/wp-styles/_wp-typography.scss */
+blockquote cite {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 0.5em;
+}
+
+/* line 112, ../sass/base/wp-styles/_wp-typography.scss */
+address {
+  margin: 0 0 1.5em;
+}
+
+/* line 116, ../sass/base/wp-styles/_wp-typography.scss */
+pre {
+  background: #eee;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
+}
+
+/* line 128, ../sass/base/wp-styles/_wp-typography.scss */
+code,
+kbd,
+tt,
+var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  font-size: 0.9375rem;
+}
+
+/* line 137, ../sass/base/wp-styles/_wp-typography.scss */
+abbr,
+acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+/* line 143, ../sass/base/wp-styles/_wp-typography.scss */
+mark,
+ins {
+  background: #eee;
+  text-decoration: none;
+}
+
+/* line 149, ../sass/base/wp-styles/_wp-typography.scss */
+big {
+  font-size: 125%;
+}
+
+/* line 153, ../sass/base/wp-styles/_wp-typography.scss */
+blockquote {
+  quotes: "" "";
+}
+
+/* line 157, ../sass/base/wp-styles/_wp-typography.scss */
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+/* line 161, ../sass/base/wp-styles/_wp-typography.scss */
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+/* line 166, ../sass/base/wp-styles/_wp-typography.scss */
+:focus {
+  outline: none;
+}
+
+/* Typography for Arabic Font */
+/* line 172, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea,
+html[lang="ary"] body,
+html[lang="ary"] button,
+html[lang="ary"] input,
+html[lang="ary"] select,
+html[lang="ary"] textarea,
+html[lang="azb"] body,
+html[lang="azb"] button,
+html[lang="azb"] input,
+html[lang="azb"] select,
+html[lang="azb"] textarea,
+html[lang="fa-IR"] body,
+html[lang="fa-IR"] button,
+html[lang="fa-IR"] input,
+html[lang="fa-IR"] select,
+html[lang="fa-IR"] textarea,
+html[lang="haz"] body,
+html[lang="haz"] button,
+html[lang="haz"] input,
+html[lang="haz"] select,
+html[lang="haz"] textarea,
+html[lang="ps"] body,
+html[lang="ps"] button,
+html[lang="ps"] input,
+html[lang="ps"] select,
+html[lang="ps"] textarea,
+html[lang="ur"] body,
+html[lang="ur"] button,
+html[lang="ur"] input,
+html[lang="ur"] select,
+html[lang="ur"] textarea {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/* line 210, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ary"] h1,
+html[lang="ary"] h2,
+html[lang="ary"] h3,
+html[lang="ary"] h4,
+html[lang="ary"] h5,
+html[lang="ary"] h6,
+html[lang="azb"] h1,
+html[lang="azb"] h2,
+html[lang="azb"] h3,
+html[lang="azb"] h4,
+html[lang="azb"] h5,
+html[lang="azb"] h6,
+html[lang="fa-IR"] h1,
+html[lang="fa-IR"] h2,
+html[lang="fa-IR"] h3,
+html[lang="fa-IR"] h4,
+html[lang="fa-IR"] h5,
+html[lang="fa-IR"] h6,
+html[lang="haz"] h1,
+html[lang="haz"] h2,
+html[lang="haz"] h3,
+html[lang="haz"] h4,
+html[lang="haz"] h5,
+html[lang="haz"] h6,
+html[lang="ps"] h1,
+html[lang="ps"] h2,
+html[lang="ps"] h3,
+html[lang="ps"] h4,
+html[lang="ps"] h5,
+html[lang="ps"] h6,
+html[lang="ur"] h1,
+html[lang="ur"] h2,
+html[lang="ur"] h3,
+html[lang="ur"] h4,
+html[lang="ur"] h5,
+html[lang="ur"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Chinese Font */
+/* line 257, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang^="zh-"] body,
+html[lang^="zh-"] button,
+html[lang^="zh-"] input,
+html[lang^="zh-"] select,
+html[lang^="zh-"] textarea {
+  font-family: "PingFang TC", "Helvetica Neue", Helvetica, STHeitiTC-Light, Arial, sans-serif;
+}
+
+/* line 265, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] button,
+html[lang="zh-CN"] input,
+html[lang="zh-CN"] select,
+html[lang="zh-CN"] textarea {
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, STHeitiSC-Light, Arial, sans-serif;
+}
+
+/* line 273, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang^="zh-"] h1,
+html[lang^="zh-"] h2,
+html[lang^="zh-"] h3,
+html[lang^="zh-"] h4,
+html[lang^="zh-"] h5,
+html[lang^="zh-"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Cyrillic Font */
+/* line 284, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="bg-BG"] body,
+html[lang="bg-BG"] button,
+html[lang="bg-BG"] input,
+html[lang="bg-BG"] select,
+html[lang="bg-BG"] textarea,
+html[lang="ru-RU"] body,
+html[lang="ru-RU"] button,
+html[lang="ru-RU"] input,
+html[lang="ru-RU"] select,
+html[lang="ru-RU"] textarea,
+html[lang="uk"] body,
+html[lang="uk"] button,
+html[lang="uk"] input,
+html[lang="uk"] select,
+html[lang="uk"] textarea {
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+}
+
+/* line 302, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="bg-BG"] h1,
+html[lang="bg-BG"] h2,
+html[lang="bg-BG"] h3,
+html[lang="bg-BG"] h4,
+html[lang="bg-BG"] h5,
+html[lang="bg-BG"] h6,
+html[lang="ru-RU"] h1,
+html[lang="ru-RU"] h2,
+html[lang="ru-RU"] h3,
+html[lang="ru-RU"] h4,
+html[lang="ru-RU"] h5,
+html[lang="ru-RU"] h6,
+html[lang="uk"] h1,
+html[lang="uk"] h2,
+html[lang="uk"] h3,
+html[lang="uk"] h4,
+html[lang="uk"] h5,
+html[lang="uk"] h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Typography for Devanagari Font */
+/* line 326, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="bn-BD"] body,
+html[lang="bn-BD"] button,
+html[lang="bn-BD"] input,
+html[lang="bn-BD"] select,
+html[lang="bn-BD"] textarea,
+html[lang="hi-IN"] body,
+html[lang="hi-IN"] button,
+html[lang="hi-IN"] input,
+html[lang="hi-IN"] select,
+html[lang="hi-IN"] textarea,
+html[lang="mr-IN"] body,
+html[lang="mr-IN"] button,
+html[lang="mr-IN"] input,
+html[lang="mr-IN"] select,
+html[lang="mr-IN"] textarea {
+  font-family: Arial, sans-serif;
+}
+
+/* line 344, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="bn-BD"] h1,
+html[lang="bn-BD"] h2,
+html[lang="bn-BD"] h3,
+html[lang="bn-BD"] h4,
+html[lang="bn-BD"] h5,
+html[lang="bn-BD"] h6,
+html[lang="hi-IN"] h1,
+html[lang="hi-IN"] h2,
+html[lang="hi-IN"] h3,
+html[lang="hi-IN"] h4,
+html[lang="hi-IN"] h5,
+html[lang="hi-IN"] h6,
+html[lang="mr-IN"] h1,
+html[lang="mr-IN"] h2,
+html[lang="mr-IN"] h3,
+html[lang="mr-IN"] h4,
+html[lang="mr-IN"] h5,
+html[lang="mr-IN"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Greek Font */
+/* line 367, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="el"] body,
+html[lang="el"] button,
+html[lang="el"] input,
+html[lang="el"] select,
+html[lang="el"] textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 375, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="el"] h1,
+html[lang="el"] h2,
+html[lang="el"] h3,
+html[lang="el"] h4,
+html[lang="el"] h5,
+html[lang="el"] h6 {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Typography for Gujarati Font */
+/* line 387, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="gu-IN"] body,
+html[lang="gu-IN"] button,
+html[lang="gu-IN"] input,
+html[lang="gu-IN"] select,
+html[lang="gu-IN"] textarea {
+  font-family: Arial, sans-serif;
+}
+
+/* line 395, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="gu-IN"] h1,
+html[lang="gu-IN"] h2,
+html[lang="gu-IN"] h3,
+html[lang="gu-IN"] h4,
+html[lang="gu-IN"] h5,
+html[lang="gu-IN"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Hebrew Font */
+/* line 406, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="he-IL"] body,
+html[lang="he-IL"] button,
+html[lang="he-IL"] input,
+html[lang="he-IL"] select,
+html[lang="he-IL"] textarea {
+  font-family: "Arial Hebrew", Arial, sans-serif;
+}
+
+/* line 414, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="he-IL"] h1,
+html[lang="he-IL"] h2,
+html[lang="he-IL"] h3,
+html[lang="he-IL"] h4,
+html[lang="he-IL"] h5,
+html[lang="he-IL"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Japanese Font */
+/* line 425, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ja"] body,
+html[lang="ja"] button,
+html[lang="ja"] input,
+html[lang="ja"] select,
+html[lang="ja"] textarea {
+  font-family: "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+}
+
+/* line 433, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ja"] h1,
+html[lang="ja"] h2,
+html[lang="ja"] h3,
+html[lang="ja"] h4,
+html[lang="ja"] h5,
+html[lang="ja"] h6 {
+  font-weight: 700;
+}
+
+/* Typography for Korean font */
+/* line 444, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ko-KR"] body,
+html[lang="ko-KR"] button,
+html[lang="ko-KR"] input,
+html[lang="ko-KR"] select,
+html[lang="ko-KR"] textarea {
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", Dotum, sans-serif;
+}
+
+/* line 452, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ko-KR"] h1,
+html[lang="ko-KR"] h2,
+html[lang="ko-KR"] h3,
+html[lang="ko-KR"] h4,
+html[lang="ko-KR"] h5,
+html[lang="ko-KR"] h6 {
+  font-weight: 600;
+}
+
+/* Typography for Thai Font */
+/* line 463, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] h4,
+html[lang="th"] h5,
+html[lang="th"] h6 {
+  line-height: 1.65;
+  font-family: "Sukhumvit Set", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 473, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="th"] body,
+html[lang="th"] button,
+html[lang="th"] input,
+html[lang="th"] select,
+html[lang="th"] textarea {
+  line-height: 1.8;
+  font-family: "Sukhumvit Set", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Remove letter-spacing for all non-latin alphabets */
+/* line 484, ../sass/base/wp-styles/_wp-typography.scss */
+html[lang="ar"] *,
+html[lang="ary"] *,
+html[lang="azb"] *,
+html[lang="haz"] *,
+html[lang="ps"] *,
+html[lang^="zh-"] *,
+html[lang="bg-BG"] *,
+html[lang="ru-RU"] *,
+html[lang="uk"] *,
+html[lang="bn-BD"] *,
+html[lang="hi-IN"] *,
+html[lang="mr-IN"] *,
+html[lang="el"] *,
+html[lang="gu-IN"] *,
+html[lang="he-IL"] *,
+html[lang="ja"] *,
+html[lang="ko-KR"] *,
+html[lang="th"] * {
+  letter-spacing: 0 !important;
+}
+
+/*--------------------------------------------------------------
+10.0 Links
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-links.scss */
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+/* line 10, ../sass/base/wp-styles/_wp-links.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 14, ../sass/base/wp-styles/_wp-links.scss */
+a:hover,
+a:active {
+  color: #000;
+  outline: 0;
+}
+
+/*--------------------------------------------------------------
+8.0 Lists
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-lists.scss */
+ul,
+ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+/* line 11, ../sass/base/wp-styles/_wp-lists.scss */
+ul {
+  list-style: disc;
+}
+
+/* line 15, ../sass/base/wp-styles/_wp-lists.scss */
+ol {
+  list-style: decimal;
+}
+
+/* line 19, ../sass/base/wp-styles/_wp-lists.scss */
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+/* line 25, ../sass/base/wp-styles/_wp-lists.scss */
+dt {
+  font-weight: 700;
+}
+
+/* line 29, ../sass/base/wp-styles/_wp-lists.scss */
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+/*--------------------------------------------------------------
+9.0 Tables
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+/* line 11, ../sass/base/wp-styles/_wp-tables.scss */
+thead th {
+  border-bottom: 2px solid #bbb;
+  padding-bottom: 0.5em;
+}
+
+/* line 16, ../sass/base/wp-styles/_wp-tables.scss */
+th {
+  padding: 0.4em;
+  text-align: left;
+}
+
+/* line 21, ../sass/base/wp-styles/_wp-tables.scss */
+tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* line 25, ../sass/base/wp-styles/_wp-tables.scss */
+td {
+  padding: 0.4em;
+}
+
+/* line 29, ../sass/base/wp-styles/_wp-tables.scss */
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+/* line 34, ../sass/base/wp-styles/_wp-tables.scss */
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+/*--------------------------------------------------------------
+6.0 Forms
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-forms.scss */
+label {
+  color: #333;
+  display: block;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+}
+
+/* line 12, ../sass/base/wp-styles/_wp-forms.scss */
+fieldset {
+  margin-bottom: 1em;
+}
+
+/* line 16, ../sass/base/wp-styles/_wp-forms.scss */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: #666;
+  background: #fff;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: block;
+  padding: 0.7em;
+  width: 100%;
+}
+
+/* line 43, ../sass/base/wp-styles/_wp-forms.scss */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+  color: #222;
+  border-color: #333;
+}
+
+/* line 63, ../sass/base/wp-styles/_wp-forms.scss */
+select {
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  height: 3em;
+  max-width: 100%;
+}
+
+/* line 71, ../sass/base/wp-styles/_wp-forms.scss */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+/* line 76, ../sass/base/wp-styles/_wp-forms.scss */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  font-weight: 400;
+}
+
+/* line 81, ../sass/base/wp-styles/_wp-forms.scss */
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: #222;
+  border: 0;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 1em 2em;
+  text-shadow: none;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
+/* line 103, ../sass/base/wp-styles/_wp-forms.scss */
+input + button,
+input + input[type="button"],
+input + input[type="submit"] {
+  padding: 0.75em 2em;
+}
+
+/* line 109, ../sass/base/wp-styles/_wp-forms.scss */
+button.secondary,
+input[type="reset"],
+input[type="button"].secondary,
+input[type="reset"].secondary,
+input[type="submit"].secondary {
+  background-color: #ddd;
+  color: #222;
+}
+
+/* line 118, ../sass/base/wp-styles/_wp-forms.scss */
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background: #767676;
+}
+
+/* line 127, ../sass/base/wp-styles/_wp-forms.scss */
+button.secondary:hover,
+button.secondary:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="button"].secondary:hover,
+input[type="button"].secondary:focus,
+input[type="reset"].secondary:hover,
+input[type="reset"].secondary:focus,
+input[type="submit"].secondary:hover,
+input[type="submit"].secondary:focus {
+  background: #bbb;
+}
+
+/* Placeholder text color -- selectors need to be separate to work. */
+/* line 141, ../sass/base/wp-styles/_wp-forms.scss */
+::-webkit-input-placeholder {
+  color: #333;
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+/* line 146, ../sass/base/wp-styles/_wp-forms.scss */
+:-moz-placeholder {
+  color: #333;
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+/* line 151, ../sass/base/wp-styles/_wp-forms.scss */
+::-moz-placeholder {
+  color: #333;
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+  opacity: 1;
+  /* Since FF19 lowers the opacity of the placeholder by default */
+}
+
+/* line 158, ../sass/base/wp-styles/_wp-forms.scss */
+:-ms-input-placeholder {
+  color: #333;
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+/*--------------------------------------------------------------
+7.0 Formatting
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-formatting.scss */
+hr {
+  background-color: #bbb;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+13.4 Posts
+--------------------------------------------------------------*/
+/* Post Landing Page */
+/* line 7, ../sass/base/wp-styles/_wp-posts.scss */
+.sticky {
+  position: relative;
+}
+
+/* line 11, ../sass/base/wp-styles/_wp-posts.scss */
+.post:not(.sticky) .icon-thumb-tack {
+  display: none;
+}
+
+/* line 15, ../sass/base/wp-styles/_wp-posts.scss */
+.sticky .icon-thumb-tack {
+  display: block;
+  height: 18px;
+  left: -1.5em;
+  position: absolute;
+  top: 1.65em;
+  width: 20px;
+}
+
+/* line 24, ../sass/base/wp-styles/_wp-posts.scss */
+.page .panel-content .entry-title,
+.page-title,
+body.page:not(.twentyseventeen-front-page) .entry-title {
+  color: #222;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* line 35, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-header .entry-title {
+  margin-bottom: 0.25em;
+}
+
+/* line 39, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-title a {
+  color: #333;
+  text-decoration: none;
+  margin-left: -2px;
+}
+
+/* line 45, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-title:not(:first-child) {
+  padding-top: 0;
+}
+
+/* line 49, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-meta {
+  color: #767676;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1818em;
+  padding-bottom: 0.25em;
+  text-transform: uppercase;
+}
+
+/* line 59, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-meta a {
+  color: #767676;
+}
+
+/* line 63, ../sass/base/wp-styles/_wp-posts.scss */
+.byline,
+.updated:not(.published) {
+  display: none;
+}
+
+/* line 68, ../sass/base/wp-styles/_wp-posts.scss */
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+/* line 73, ../sass/base/wp-styles/_wp-posts.scss */
+.pagination,
+.comments-pagination {
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 2em 0 3em;
+  text-align: center;
+}
+
+/* line 83, ../sass/base/wp-styles/_wp-posts.scss */
+.pagination .icon,
+.comments-pagination .icon {
+  width: 0.666666666em;
+  height: 0.666666666em;
+}
+
+/* line 89, ../sass/base/wp-styles/_wp-posts.scss */
+.comments-pagination {
+  border: 0;
+}
+
+/* line 93, ../sass/base/wp-styles/_wp-posts.scss */
+.page-numbers {
+  display: none;
+  padding: 0.5em 0.75em;
+}
+
+/* line 98, ../sass/base/wp-styles/_wp-posts.scss */
+.page-numbers.current {
+  color: #767676;
+  display: inline-block;
+}
+
+/* line 103, ../sass/base/wp-styles/_wp-posts.scss */
+.page-numbers.current .screen-reader-text {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: relative !important;
+  width: auto;
+}
+
+/* line 111, ../sass/base/wp-styles/_wp-posts.scss */
+.prev.page-numbers,
+.next.page-numbers {
+  background-color: #ddd;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25em 0.5em 0.4em;
+}
+
+/* line 123, ../sass/base/wp-styles/_wp-posts.scss */
+.prev.page-numbers,
+.next.page-numbers {
+  -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* line 129, ../sass/base/wp-styles/_wp-posts.scss */
+.prev.page-numbers:focus,
+.prev.page-numbers:hover,
+.next.page-numbers:focus,
+.next.page-numbers:hover {
+  background-color: #767676;
+  color: #fff;
+}
+
+/* line 137, ../sass/base/wp-styles/_wp-posts.scss */
+.prev.page-numbers {
+  float: left;
+}
+
+/* line 141, ../sass/base/wp-styles/_wp-posts.scss */
+.next.page-numbers {
+  float: right;
+}
+
+/* Aligned blockquotes */
+/* line 147, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-content blockquote.alignleft,
+.entry-content blockquote.alignright {
+  color: #666;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  width: 48%;
+}
+
+/* Blog landing, search, archives */
+/* line 157, ../sass/base/wp-styles/_wp-posts.scss */
+.blog .site-main > article,
+.archive .site-main > article,
+.search .site-main > article {
+  padding-bottom: 2em;
+}
+
+/* line 163, ../sass/base/wp-styles/_wp-posts.scss */
+body:not(.twentyseventeen-front-page) .entry-header {
+  padding: 1em 0;
+}
+
+/* line 167, ../sass/base/wp-styles/_wp-posts.scss */
+body:not(.twentyseventeen-front-page) .entry-header,
+body:not(.twentyseventeen-front-page) .entry-content,
+body:not(.twentyseventeen-front-page) #comments {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 174, ../sass/base/wp-styles/_wp-posts.scss */
+body:not(.twentyseventeen-front-page) .entry-header {
+  padding-top: 0;
+}
+
+/* line 178, ../sass/base/wp-styles/_wp-posts.scss */
+.blog .entry-meta a.post-edit-link,
+.archive .entry-meta a.post-edit-link,
+.search .entry-meta a.post-edit-link {
+  color: #222;
+  display: inline-block;
+  margin-left: 1em;
+  white-space: nowrap;
+}
+
+/* line 187, ../sass/base/wp-styles/_wp-posts.scss */
+.search .page .entry-meta a.post-edit-link {
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+/* line 192, ../sass/base/wp-styles/_wp-posts.scss */
+.taxonomy-description {
+  color: #666;
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+
+/* More tag */
+/* line 200, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-content .more-link:before {
+  content: "";
+  display: block;
+  margin-top: 1.5em;
+}
+
+/* Single Post */
+/* line 208, ../sass/base/wp-styles/_wp-posts.scss */
+.single-post:not(.has-sidebar) #primary,
+.page.page-one-column:not(.twentyseventeen-front-page) #primary,
+.archive.page-one-column:not(.has-sidebar) .page-header,
+.archive.page-one-column:not(.has-sidebar) #primary {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 740px;
+}
+
+/* line 217, ../sass/base/wp-styles/_wp-posts.scss */
+.single-featured-image-header {
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+/* line 222, ../sass/base/wp-styles/_wp-posts.scss */
+.single-featured-image-header img {
+  display: block;
+  margin: auto;
+}
+
+/* line 227, ../sass/base/wp-styles/_wp-posts.scss */
+.page-links {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 2em 0 3em;
+}
+
+/* line 234, ../sass/base/wp-styles/_wp-posts.scss */
+.page-links .page-number {
+  color: #767676;
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+/* line 240, ../sass/base/wp-styles/_wp-posts.scss */
+.page-links a {
+  display: inline-block;
+}
+
+/* line 244, ../sass/base/wp-styles/_wp-posts.scss */
+.page-links a .page-number {
+  color: #222;
+}
+
+/* Entry footer */
+/* line 250, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  margin-top: 2em;
+  padding: 2em 0;
+}
+
+/* line 257, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .cat-links,
+.entry-footer .tags-links {
+  display: block;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1818em;
+  padding-left: 2.5em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+/* line 269, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .cat-links + .tags-links {
+  margin-top: 1em;
+}
+
+/* line 273, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .cat-links a,
+.entry-footer .tags-links a {
+  color: #333;
+}
+
+/* line 278, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .cat-links .icon,
+.entry-footer .tags-links .icon {
+  color: #767676;
+  left: 0;
+  margin-right: 0.5em;
+  position: absolute;
+  top: 2px;
+}
+
+/* line 287, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .edit-link {
+  display: inline-block;
+}
+
+/* line 291, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .edit-link a.post-edit-link {
+  background-color: #222;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  margin-top: 2em;
+  padding: 0.7em 2em;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+/* line 309, ../sass/base/wp-styles/_wp-posts.scss */
+.entry-footer .edit-link a.post-edit-link:hover,
+.entry-footer .edit-link a.post-edit-link:focus {
+  background-color: #767676;
+}
+
+/* Post Formats */
+/* line 316, ../sass/base/wp-styles/_wp-posts.scss */
+.blog .format-status .entry-title,
+.archive .format-status .entry-title,
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+
+/* line 323, ../sass/base/wp-styles/_wp-posts.scss */
+.format-quote blockquote {
+  color: #333;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 300;
+  overflow: visible;
+  position: relative;
+}
+
+/* line 332, ../sass/base/wp-styles/_wp-posts.scss */
+.format-quote blockquote .icon {
+  display: block;
+  height: 20px;
+  left: -1.25em;
+  position: absolute;
+  top: 0.4em;
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  width: 20px;
+}
+
+/* Post Navigation */
+/* line 346, ../sass/base/wp-styles/_wp-posts.scss */
+.post-navigation {
+  font-weight: 800;
+  margin: 3em 0;
+}
+
+/* line 351, ../sass/base/wp-styles/_wp-posts.scss */
+.post-navigation .nav-links {
+  padding: 1em 0;
+}
+
+/* line 355, ../sass/base/wp-styles/_wp-posts.scss */
+.nav-subtitle {
+  background: transparent;
+  color: #767676;
+  display: block;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1818em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+/* line 366, ../sass/base/wp-styles/_wp-posts.scss */
+.nav-title {
+  color: #333;
+  font-size: 15px;
+  font-size: 0.9375rem;
+}
+
+/* line 372, ../sass/base/wp-styles/_wp-posts.scss */
+.post-navigation .nav-next {
+  margin-top: 1.5em;
+}
+
+/* line 376, ../sass/base/wp-styles/_wp-posts.scss */
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper {
+  margin-right: 0.5em;
+}
+
+/* line 380, ../sass/base/wp-styles/_wp-posts.scss */
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper {
+  margin-left: 0.5em;
+}
+
+/*--------------------------------------------------------------
+13.5 Pages
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-pages.scss */
+.page-header {
+  padding-bottom: 2em;
+}
+
+/* line 9, ../sass/base/wp-styles/_wp-pages.scss */
+.page .entry-header .edit-link {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+/* line 14, ../sass/base/wp-styles/_wp-pages.scss */
+.search .page .entry-header .edit-link {
+  font-size: 11px;
+  font-size: 0.6875rem;
+}
+
+/* line 19, ../sass/base/wp-styles/_wp-pages.scss */
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+/* line 24, ../sass/base/wp-styles/_wp-pages.scss */
+.page:not(.home) #content {
+  padding-bottom: 1.5em;
+}
+
+/* 404 page */
+/* line 30, ../sass/base/wp-styles/_wp-pages.scss */
+.error404 .page-content {
+  padding-bottom: 4em;
+}
+
+/* line 34, ../sass/base/wp-styles/_wp-pages.scss */
+.error404 .page-content .search-form,
+.search .page-content .search-form {
+  margin-bottom: 3em;
+}
+
+/*--------------------------------------------------------------
+13.6 Footer
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-footer.scss */
+.site-footer {
+  border-top: 1px solid #eee;
+}
+
+/* line 9, ../sass/base/wp-styles/_wp-footer.scss */
+.site-footer .wrap {
+  padding-bottom: 1.5em;
+  padding-top: 2em;
+}
+
+/* Footer widgets */
+/* line 16, ../sass/base/wp-styles/_wp-footer.scss */
+.site-footer .widget-area {
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
+/* Social nav */
+/* line 23, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation {
+  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+/* line 29, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation ul {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+/* line 35, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation li {
+  display: inline;
+}
+
+/* line 39, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation a {
+  background-color: #767676;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  margin: 0 1em 0.5em 0;
+  text-align: center;
+  width: 40px;
+}
+
+/* line 51, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation a:hover,
+.social-navigation a:focus {
+  background-color: #333;
+}
+
+/* line 56, ../sass/base/wp-styles/_wp-footer.scss */
+.social-navigation .icon {
+  height: 16px;
+  top: 12px;
+  width: 16px;
+  vertical-align: top;
+}
+
+/* Site info */
+/* line 65, ../sass/base/wp-styles/_wp-footer.scss */
+.site-info {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 1em;
+}
+
+/* line 71, ../sass/base/wp-styles/_wp-footer.scss */
+.site-info a {
+  color: #666;
+}
+
+/* line 75, ../sass/base/wp-styles/_wp-footer.scss */
+.site-info .sep {
+  margin: 0;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+16.1 Galleries
+--------------------------------------------------------------*/
+/* line 5, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-item {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  margin: 0 0 1.5em;
+  padding: 0 1em 0 0;
+  width: 50%;
+}
+
+/* line 14, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-columns-1 .gallery-item {
+  width: 100%;
+}
+
+/* line 18, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+/* line 22, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-item a,
+.gallery-item a:hover,
+.gallery-item a:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: none;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* line 32, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-item a img {
+  display: block;
+  -webkit-transition: -webkit-filter 0.2s ease-in;
+  transition: -webkit-filter 0.2s ease-in;
+  transition: filter 0.2s ease-in;
+  transition: filter 0.2s ease-in, -webkit-filter 0.2s ease-in;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* line 42, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-item a:hover img,
+.gallery-item a:focus img {
+  -webkit-filter: opacity(60%);
+  filter: opacity(60%);
+}
+
+/* line 48, ../sass/base/wp-styles/_wp-galleries.scss */
+.gallery-caption {
+  display: block;
+  text-align: left;
+  padding: 0 10px 0 0;
+  margin-bottom: 0;
+}
